@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tankkaussovellus.MainPage" BackgroundColor="GhostWhite">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Label Text="Tankkausmuistio" FontSize="35" TextColor="DarkBlue" HorizontalOptions="Center" />
+
+            <Label Text="Viimeisimmät tankkaukset:" FontSize="22" IsVisible="true" />
+
+            <ListView x:Name="tankkausLista" ItemSelected="itemList_ItemSelected" SelectionMode="Single" Margin="20, 0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ContentView Padding="3">
+                                <Grid BackgroundColor="AliceBlue" Padding="2" ColumnDefinitions="Auto, *, *, Auto, Auto, *, *">
+                                    <Label Text="{Binding Pvm}" TextColor="Purple" FontSize="16" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="0" />
+
+                                    <Label Text="{Binding Kilometrit}" TextColor="Purple" FontSize="16" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" />
+                                    <Label Text="Km" TextColor="Purple" FontSize="16" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="2" />
+
+                                    <Label Text="{Binding Litraa}" TextColor="Purple" FontSize="16" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" />
+                                    <Label Text="L" TextColor="Purple" FontSize="16" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="4" />
+
+                                    <Label Text="{Binding Summa}" TextColor="Purple" FontSize="16" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="5" />
+                                    <Label Text="€" TextColor="Purple" FontSize="16" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="6" />
+                                </Grid>
+                            </ContentView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Label x:Name="labelIlmoitus" Text="Mitään ei ole tallentettu muistioon." IsVisible="False" FontSize="16" />
+
+            <Button x:Name="addPageBtn" Clicked="addPageBtn_Clicked" IsVisible="True" Text="Lisää uusi" Padding="5" FontSize="26"
+            Margin="10,10,10,10" BackgroundColor="PaleVioletRed"/>
+
+            <!-- Laske keskikulutus -->
+            <HorizontalStackLayout HorizontalOptions="End">
+                <Label x:Name="labelLaske" Text="Keski Kulutus: " FontSize="16" />
+                <Label x:Name="labelKulutus" BackgroundColor="MistyRose" FontSize="16" WidthRequest="80" />
+            </HorizontalStackLayout>
+            
+
+            <!-- Poista -->
+            <Button x:Name="poistaNappi" Clicked="poistaNappi_Clicked" IsVisible="True" Text="Poista" Padding="10" FontSize="20"
+            Margin="10,10,10,10" BackgroundColor="DarkRed" HorizontalOptions="End"/>
+
+        </VerticalStackLayout>
+    </ScrollView>  
+
+</ContentPage>
+

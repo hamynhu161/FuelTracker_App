@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tankkaussovellus.AddPage"
+             Title="AddPage" BackgroundColor="Black">
+    <Grid>
+
+        <Grid.RowDefinitions> 
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+
+        </Grid.RowDefinitions>
+
+        <Frame Grid.Row="0" BackgroundColor="Black" Padding="20" BorderColor="Black" CornerRadius="0">
+            <Label Text="Tankkaus - Lisääminen" HorizontalTextAlignment="Center"
+                   TextColor="Orange" FontSize="26"/>
+        </Frame>
+
+        <VerticalStackLayout Grid.Row="1">
+            <!-- Inputkenttä-->
+            <Entry x:Name="kmEntry" Placeholder="Ajokilometrit" Keyboard="Numeric" TextColor="white" FontSize="18" Margin="20"/>
+            <Entry x:Name="litratEntry" Placeholder="Litramäärä" Keyboard="Numeric" TextColor="white" FontSize="18" Margin="20"/>
+            <Entry x:Name="summaEntry" Placeholder="Summa" Keyboard="Numeric" TextColor="white" FontSize="18" Margin="20"/>
+
+            <Button x:Name="tallennusNappi" Clicked="tallennusNappi_Clicked" Margin="50,20,50,20"  Padding="10, 10, 10, 10" Text="Tallenna" FontSize="22"/>
+
+            <Button x:Name="palautusNappi" Clicked="palautusNappi_Clicked" HorizontalOptions="End" Margin="0,100,50,0" Padding="10, 10, 10, 10" Text="Back" FontSize="22" BackgroundColor="LightGray" TextColor="Black"/>
+
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
